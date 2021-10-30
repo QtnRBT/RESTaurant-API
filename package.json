@@ -23,6 +23,7 @@
     "morgan": "^1.10.0",
     "mysql2": "^2.3.2",
     "node-fetch": "^3.0.0",
+    "nodemon": "^2.0.14",
     "pug": "^3.0.2"
   },
   "description": ""

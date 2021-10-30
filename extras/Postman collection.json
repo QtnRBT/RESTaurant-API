@@ -1,0 +1,3050 @@
+{
+	"info": {
+		"_postman_id": "c0ecaa22-179c-4924-846b-c6aa9b2367a4",
+		"name": "RESTaurant API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "All categories",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/categories",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "All categories",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/categories",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"categories\": [\n        {\n            \"id\": 1,\n            \"name\": \"Apéro\",\n            \"description\": \"Pour les fans d'alcool !\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Specific category",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Specific category",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "14"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"name\": \"Apéro\",\n    \"description\": \"Pour les fans d'alcool !\"\n}"
+								},
+								{
+									"name": "Wrong id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "14"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"This category doesn't exist.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Category Apéro successfully deleted.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Not existing category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Not existing category",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "13"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"This category doesn't exist.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "13"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "13"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Bonbons\",\n    \"description\": \"Oui.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Apéro\",\n    \"description\": \"Pour les fans d'alcool !\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Category Apéro successfully created.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong content",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Apéro\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Apéro\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"message\": \"Please verify that the content of the category you want to create includes a name, description and is sent in a JSON format.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Apéro\",\n    \"description\": \"Pour les fans d'alcool !\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Apéro\",\n    \"description\": \"Pour les fans d'alcool !\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Apéro\",\n    \"description\": \"Pour les fans d'alcool !\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Apéro\",\n    \"description\": \"Pour les fans d'alcool !\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"ApéroChangé\",\n    \"description\": \"Cette description a changé.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ApéroChangé\",\n    \"description\": \"Cette description a changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Category ApéroChangé successfully updated.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong content",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"notAName\": \"Hello\",\n    \"notADescription\": \"Hello i'm not a description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "14"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong content",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"notAName\": \"ApéroChangé\",\n    \"notADescription\": \"Cette description a changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "14"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"message\": \"No name or description specified, skipped the request and changed nothing.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"ApéroChangé\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "14"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ApéroChangé\",\n    \"description\": \"Cette description a changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "14"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"ApéroChangé\",\n    \"description\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/categories/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "14"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ApéroChangé\",\n    \"description\": \"Cette description a changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/categories/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "14"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "items",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "All items",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "All items",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"items\": [\n        {\n            \"name\": \"Test\",\n            \"price\": 15.9,\n            \"description\": \"Le bon test.\",\n            \"category_id\": 3,\n            \"id\": 1\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Specific item",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Specific item",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"name\": \"Test\",\n    \"price\": 15.9,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 3,\n    \"id\": 1\n}"
+								}
+							]
+						},
+						{
+							"name": "Matching parameters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items?name=Test",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items"
+									],
+									"query": [
+										{
+											"key": "category_id",
+											"value": "2",
+											"description": "non",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Test"
+										},
+										{
+											"key": "description",
+											"value": "Le bon test.",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "15.90",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Specific item",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "?category_id=2&name=Test&price=15.90",
+											"query": [
+												{
+													"key": "category_id",
+													"value": "2"
+												},
+												{
+													"key": "name",
+													"value": "Test"
+												},
+												{
+													"key": "price",
+													"value": "15.90"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"name\": \"Test\",\n    \"price\": 15.9,\n    \"description\": null,\n    \"category_id\": 2,\n    \"id\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "27"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"This item doesn't exist.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Item Test successfully deleted.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Not existing item",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Not existing item",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"This item doesn't exist.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 3\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Item Test sucessfully created.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong content",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"notAName\": \"Test\",\n    \"notAPrice\": 15.90,\n    \"notACategory_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"notAName\": \"Test\",\n    \"notAPrice\": 15.90,\n    \"notACategory_id\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"message\": \"Please verify that the content of the item you want to create includes a name, price (and description) and is sent in a JSON format.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong category id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 27\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong category id",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 27\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"This category doesn't exist.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 3\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"description\": \"Le bon test.\",\n    \"category_id\": 3\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Item Test successfully updated.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong content",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"notADescription\": \"Bonsoir j'ai changé.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong content",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"notADescription\": \"Bonsoir j'ai changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"message\": \"No name, description, price or category id specified, skipped the request and changed nothing.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong id type or no id provided",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/items/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": " "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong id type or no id provided",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "bonsoir"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"message\": \"Please verify the id you provided is a valid number.\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "formulas",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "All formulas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "All formulas",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"formulas\": [\n        {\n            \"ID\": 5,\n            \"price\": 15.8,\n            \"name\": \"La quatrième formule\",\n            \"categories\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"Plats\",\n                    \"description\": \"Les bons plats de résistance.\",\n                    \"index\": 2\n                },\n                {\n                    \"id\": 6,\n                    \"name\": \"Bonbons\",\n                    \"description\": \"Oui.\",\n                    \"index\": 3\n                }\n            ]\n        },\n        {\n            \"ID\": 6,\n            \"price\": 15.8,\n            \"name\": \"La formule 1\",\n            \"categories\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"Plats\",\n                    \"description\": \"Les bons plats de résistance.\",\n                    \"index\": 1\n                },\n                {\n                    \"id\": 5,\n                    \"name\": \"Desserts\",\n                    \"description\": \"Parce que le sucré c'est bon.\",\n                    \"index\": 2\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Specific formula",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Specific formula",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"ID\": 5,\n    \"price\": 15.8,\n    \"name\": \"La quatrième formule\",\n    \"categories\": [\n        {\n            \"id\": 4,\n            \"name\": \"Plats\",\n            \"description\": \"Les bons plats de résistance.\",\n            \"index\": 2\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Bonbons\",\n            \"description\": \"Oui.\",\n            \"index\": 3\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Matching parameters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas?name=La quatrième formule",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas"
+									],
+									"query": [
+										{
+											"key": "category_id",
+											"value": "2",
+											"description": "non",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "La quatrième formule"
+										},
+										{
+											"key": "description",
+											"value": "Le bon test.",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "15.80",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Matching parameters",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "?name=La quatrième formule",
+											"query": [
+												{
+													"key": "category_id",
+													"value": "2",
+													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "La quatrième formule"
+												},
+												{
+													"key": "price",
+													"value": "15.90",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"ID\": 5,\n    \"price\": 15.8,\n    \"name\": \"La quatrième formule\",\n    \"categories\": [\n        {\n            \"id\": 4,\n            \"name\": \"Plats\",\n            \"description\": \"Les bons plats de résistance.\",\n            \"index\": 2\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Bonbons\",\n            \"description\": \"Oui.\",\n            \"index\": 3\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "27"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "27"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"This formula doesn't exist.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/formulas/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Formula successfully deleted.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Not existing formula",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Not existing formula",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/formulas/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"This formula doesn't exist.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/formulas/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseURL}}/formulas/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 4,\n    \"category_two\": 5,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 4,\n    \"category_two\": 5,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/formulas",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Item Test sucessfully created.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong content",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"notAName\": \"Test\",\n    \"notAPrice\": 15.90,\n    \"notACategory_one\": 4,\n    \"notACategory_two\": 5,\n    \"notACcategory_three\": null,\n    \"notACategory_four\": null,\n    \"notACcategory_five\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"notAName\": \"Test\",\n    \"notAPrice\": 15.90,\n    \"notACategory_id\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/formulas",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"message\": \"Please verify that the content of the formula you want to create includes a name (and at least a category) and is sent in a JSON format.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong category id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 1,\n    \"category_two\": 0,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong category id",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 1,\n    \"category_two\": 0,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/formulas",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"One of the categories you provided doesn't exist.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 4,\n    \"category_two\": 5,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 4,\n    \"category_two\": 5,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/formulas",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 4,\n    \"category_two\": 5,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test\",\n    \"price\": 15.90,\n    \"category_one\": 4,\n    \"category_two\": 5,\n    \"category_three\": null,\n    \"category_four\": null,\n    \"category_five\": null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/formulas",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "OK",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"La quatrième formule\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"La quatrième formule\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/items/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": \"Formula successfully updated.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Unauthorized",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"La quatrième formule\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/formulas/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"You're not allowed to do that. Please add an Authorization field to your headers.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Wrong creditentials",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "some wrong password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "<Basic Auth Username>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/formulas/:id",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Wrong creditentials",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"Bonsoir j'ai changé.\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/formulas/:id",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 401,\n    \"message\": \"Wrong admin creditentials.\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "admin",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "root",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000"
+		}
+	]
+}
