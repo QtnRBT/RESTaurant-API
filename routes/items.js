@@ -291,7 +291,7 @@ app.post("/", (req, res) => {
     } else {
         let myError = {
             code: 401,
-            message: "Wrong admin creditentials."
+            message: "Wrong admin credentials."
         }
         res.statusCode = 401;
         res.send(myError);
@@ -393,7 +393,7 @@ app.put("/:id", (req, res) => {
     } else {
         let myError = {
             code: 401,
-            message: "Wrong admin creditentials."
+            message: "Wrong admin credentials."
         }
         res.statusCode = 401;
         res.send(myError);
@@ -467,7 +467,7 @@ app.delete("/:id", (req, res) => {
     } else {
         let myError = {
             code: 401,
-            message: "Wrong admin creditentials."
+            message: "Wrong admin credentials."
         }
         res.statusCode = 401;
         res.send(myError);

@@ -70,10 +70,10 @@ If everything succeeded, you will land on this page :
 ![phpMyAdmin upload success](images/phpMyAdminSuccess.PNG?raw=True)
 
 Our database will have 4 tables :
-1. The **items** table with a name, a price, a description, a category id and an id (for the item itself)
-2. The **categories** table with an id, a name and a description (optional)
-3. The **formulas** table with an id, a formula id, a price and a name (optional)
-4. The **category_formulas** table which contains all of the categories' id of that formula
+1. The **items** table with a name, a price, a description, a category ID and an ID (for the item itself)
+2. The **categories** table with an ID, a name and a description (optional)
+3. The **formulas** table with an ID, a formula ID, a price and a name (optional)
+4. The **category_formulas** table which contains all of the categories' ID of that formula
 
 
 
@@ -103,7 +103,7 @@ Then select the `extras/Postman collection.json` file and click **Import**. You 
 
 
 
-### POST requests
+### 2.1 POST requests
 
 Since we currently have nothing stored in our database, we need to start adding some menus.
 
@@ -111,7 +111,7 @@ We will add our first ever category, then we will add another one, then we will 
 
 #### Adding a category
 
-In the following request's headers, we need to authenticate, otherwise the API won't let us publish anything. To do this, you can use the [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the `root:admin` creditentials.
+In the following request's headers, we need to authenticate, otherwise the API won't let us publish anything. To do this, you can use the [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the `root:admin` credentials.
 
 Let's add our first category which will be **Starters**. To do this, we need to make a POST request on the `/categories` route. You can use the POST requests included in the Postman collection to start.
 
@@ -124,12 +124,12 @@ If we don't authenticate, the API will return this error :
 }
 ```
 
-And if we put in wrong creditentials :
+And if we put in wrong credentials:
 
 ```json
 {
     "code": 401,
-    "message": "Wrong admin creditentials."
+    "message": "Wrong admin credentials."
 }
 ```
 
@@ -204,3 +204,35 @@ The response :
     "message": "Formula successfully created."
 }
 ```
+
+### 2.2 GET requests
+
+Now that we have some data to retrieve from our database, we can start making GET requests. These requests need no particular authentication, so we don't need to add this to our headers. We will need to query the `/items` route in order to get the items.
+
+#### Getting a dish
+
+We have three ways to get an item. We can either :
+
+- request all the dishes
+- request a particular item, from its ID
+- request a specific item, by adding search parameters (such as **name**, **price** and **category_id**)
+
+First, let's request all of the items. This is the response that we are given :
+
+```json
+{
+    "items": [
+        {
+            "name": "Salad",
+            "price": 4.99,
+            "description": "A good Cesar Salad.",
+            "category_id": 4,
+            "id": 4
+        }
+    ]
+}
+```
+
+Then, we can request a specific item from its ID. So we need to query the `items/id` route, where **id** is a number.
+
+For instance, let's try 
