@@ -10,13 +10,19 @@ With our API, you will be able to create menus for restaurants. We have three ca
 ## Navigation
 
 1. [Installation](#1-installation)
+    1. [API Installation](#11-api-installation)
+    2. [Database Installation](#12-database-installation)
 2. [Making requests](#2-making-requests)
+    1. [POST requests](#21-post-requests)
+    2. [GET requests](#22-get-requests)
+    3. [DELETE requests](#23-delete-requests)
+    4. [PUT requests](#24-put-requests)
 
 ## 1. Installation
 
 Before starting any installation, make sure you have [NodeJS](https://nodejs.org/en/) installed on your machine.
 
-### API Installation
+### 1.1 API Installation
 
 Create a folder wherever you want on your PC and open a terminal.
 Then change directory in your terminal such as below :
@@ -47,7 +53,7 @@ We will use NPM to install all of the modules.
 npm install
 ```
 
-### Database installation
+### 1.2 Database installation
 
 To get started using this API, we will need to install the Database schema that it is using. Fortunately, you're provided the schema in the ```extras/``` folder.
 
@@ -75,6 +81,47 @@ Our database will have 4 tables :
 3. The **formulas** table with an ID, a formula ID, a price and a name (optional)
 4. The **category_formulas** table which contains all of the categories' ID of that formula
 
+
+This is the definition of the **items** table :
+
+| Column name   | Type          | Options       |
+| ------------- | ------------- | ------------- |
+| id            | INT           | NOT NULL      |
+| name          | VARCHAR(45)   | NOT NULL      |
+| price         | DECIMAL(5,2)  | NOT NULL      |
+| description   | MEDIUMTEXT    | NULL          |
+| category_id   | INT           | NOT NULL      |
+
+
+This is the definition of the **categories** table
+
+| Column name   | Type          | Options       |
+| ------------- | ------------- | ------------- |
+| id            | INT           | NOT NULL      |
+| name          | VARCHAR(45)   | NOT NULL      |
+| description   | MEDIUMTEXT    | NULL          |
+
+
+This is the definition of the **formulas** table
+
+| Column name   | Type          | Options       |
+| ------------- | ------------- | ------------- |
+| id            | INT           | NOT NULL      |
+| formula       | INT           | NOT NULL      |
+| price         | DECIMAL(5,2)  | NOT NULL      |
+| name          | VARCHAR(45)   | NULL          |
+
+
+This is the definition of the **category_formulas** table
+
+| Column name   | Type          | Options       |
+| ------------- | ------------- | ------------- |
+| id            | INT           | NOT NULL      |
+| f1            | INT           | NOT NULL      |
+| f2            | INT           | NOT NULL      |
+| f3            | INT           | NULL          |
+| f4            | INT           | NULL          |
+| f5            | INT           | NULL          |
 
 
 Once we have installed everything we need, we can start the API by typing ```nodemon .``` in the terminal.
@@ -107,11 +154,11 @@ Then select the `extras/Postman collection.json` file and click **Import**. You 
 
 Since we currently have nothing stored in our database, we need to start adding some menus.
 
+In the following request's headers, we need to authenticate, otherwise the API won't let us publish anything. To do this, you can use the [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the `root:admin` credentials.
+
 We will add our first ever category, then we will add another one, then we will add a dish and finally add a formula.
 
 #### Adding a category
-
-In the following request's headers, we need to authenticate, otherwise the API won't let us publish anything. To do this, you can use the [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the `root:admin` credentials.
 
 Let's add our first category which will be **Starters**. To do this, we need to make a POST request on the `/categories` route. You can use the POST requests included in the Postman collection to start.
 
@@ -133,7 +180,7 @@ And if we put in wrong credentials:
 }
 ```
 
-Now, in the request's body, we need to include a name and a description, as done below :
+Now, in the request's body, we need to include a name and a description, as below :
 
 ```json
 {
@@ -168,7 +215,7 @@ The request's body :
 }
 ```
 
-The resonse :
+The response :
 ```json
 {
     "code": 200,
@@ -178,7 +225,7 @@ The resonse :
 
 #### Adding a formula
 
-To create a formula, you need to have at least 2 categories. If you don't use the 5 available slots for categories, you still need to fill in the rest with **null**.
+To create a formula, you need to have at least 2 categories. If you don't use the 5 available slots for categories, you still need to fill in the rest with a **null** value.
 
 Let's add our first formula which will be **Little formula**, including **Starters** and **Pizzas** categories. To do this, we need to make a POST request on the `/items` route. You can use the POST requests included in the Postman collection to start.
 
@@ -217,7 +264,7 @@ We have three ways to get an item. We can either :
 - request a particular item, from its ID
 - request a specific item, by adding search parameters (such as **name**, **price** and **category_id**)
 
-First, let's request all of the items. This is the response that we are given :
+First, let's request all items on the `/items` route. This is the response that we are given :
 
 ```json
 {
@@ -235,4 +282,167 @@ First, let's request all of the items. This is the response that we are given :
 
 Then, we can request a specific item from its ID. So we need to query the `items/id` route, where **id** is a number.
 
-For instance, let's try 
+For instance, you can replace **id** with 4 and it will return the same item.
+
+```json
+{
+    "name": "Salad",
+    "price": 4.99,
+    "description": "A good Cesar Salad.",
+    "category_id": 4,
+    "id": 4
+}        
+```
+
+Then, we can request an item with search parameters. To do this, we need to request the `/items?param=value` route, where **param** is the name of a parameter (such as **name**) and **value** is the value (such as **Salad**). In our case, it will return the same result :
+
+```json
+{
+    "name": "Salad",
+    "price": 4.99,
+    "description": "A good Cesar Salad.",
+    "category_id": 4,
+    "id": 4
+}
+```
+
+#### Getting a category
+
+To get a category, we cannot use search parameters, so there's only two ways. We can either :
+
+- request all the categories
+- request a particular category, from its ID
+
+First, let's request all categories on the `/categories` route. This is the response that we are given :
+
+```json
+{
+    "categories": [
+        {
+            "id": 4,
+            "name": "Starters",
+            "description": "These are the dishes you can start your meal with."
+        },
+        {
+            "id": 5,
+            "name": "Pizzas",
+            "description": "These are the pizzas our restaurant offers."
+        }
+    ]
+}
+```
+
+Then, we can request a specific category from its ID. So we need to query the `categories/id` route, where **id** is a number.
+
+For instance, you can replace **id** with 5 and it will return the following :
+
+```json
+{
+    "id": 5,
+    "name": "Pizzas",
+    "description": "These are the pizzas our restaurant offers."
+}
+```
+
+#### Getting a formula
+
+We have three ways to get a formula. We can either :
+
+- request all formulas
+- request a particular formula, from its ID
+- request a specific formula, by adding search parameters (such as **name**, **price** and **category_id**)
+
+First, let's request all formulas on the `/formulas` route. This is the response that we are given :
+
+```json
+{
+    "formulas": [
+        {
+            "ID": 1,
+            "price": 10.5,
+            "name": "Little formula",
+            "categories": [
+                {
+                    "id": 4,
+                    "name": "Starters",
+                    "description": "These are the dishes you can start your meal with.",
+                    "index": 1
+                },
+                {
+                    "id": 5,
+                    "name": "Pizzas",
+                    "description": "These are the pizzas our restaurant offers.",
+                    "index": 2
+                }
+            ]
+        }
+    ]
+}
+```
+
+The same requests as for an item can be done.
+
+### 2.3 DELETE requests
+
+In the following request's headers, we need to authenticate, otherwise the API won't let us delete anything. To do this, you can use the [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the `root:admin` credentials.
+
+To delete something, simply call the `/something/id` route where **something** is what you want to delete (such as **items**, **categories** or **formulas**) and **id** is the ID of the thing that you want to delete. For instance, if we delete an item, it will return :
+
+```json
+{
+    "code": 200,
+    "message": "Item Salad successfully deleted."
+}
+```
+
+
+### 2.4 PUT requests
+
+Put requests are useful if you want to modify the content of something.
+
+In the following request's headers, we need to authenticate, otherwise the API won't let us modify anything. To do this, you can use the [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the `root:admin` credentials.
+
+To modify something, simply call the `/something/id` route where **something** is what you want to change (such as **items**, **categories** or **formulas**) and **id** is the ID of the thing that you want to delete.
+
+In the request's body, you need to add what you want to change.
+
+For instance, let's change the **Little formula**'s price from **10.5** to **11.5**. This is our request's body :
+
+```json
+{
+    "price": 11.5
+}
+```
+
+And this is the response :
+
+```json
+{
+    "code": 200,
+    "message": "Formula successfully updated."
+}
+``` 
+
+If we get it we can see that it now returns : 
+
+```json
+{
+    "ID": 1,
+    "price": 11.5,
+    "name": "Little formula",
+    "categories": [
+        {
+            "id": 4,
+            "name": "Starters ",
+            "description": "These are the starters our restaurant offers.",
+            "index": 1
+        },
+        {
+            "id": 5,
+            "name": "Pizzas",
+            "description": "These are the starters our restaurant offers.",
+            "index": 2
+        }
+    ]
+}
+```

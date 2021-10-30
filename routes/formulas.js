@@ -119,9 +119,11 @@ app.get("/:id", (req, res) => {
 
 // to finish
 app.get("/", async (req, res) => {
-    if(req.body.length == 0) {
+    console.log(req.body.length);
+    if(req.query.length == 0) {
         let SQL = "SELECT * FROM formulas";
         con.query(SQL, async (err, result, fields) => {
+            console.log("Oui bonsoir")
             if(err) {
                 let myError = {
                     code: 500,

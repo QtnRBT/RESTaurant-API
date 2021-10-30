@@ -13,7 +13,7 @@ let con = mysql.createConnection({
 });
 
 app.get("/", (req, res) => {
-    if(!req.query.name && !req.query.category_id && !req.query.price) {
+    if(req.query.length == 0) {
         try {
             let sql = "SELECT * FROM items";
             con.query(sql, (err, result, fields) => {

@@ -43,8 +43,8 @@ DROP TABLE IF EXISTS `restaurant`.`category_formulas` ;
 
 CREATE TABLE IF NOT EXISTS `restaurant`.`category_formulas` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `f1` INT NULL DEFAULT NULL,
-  `f2` INT NULL DEFAULT NULL,
+  `f1` INT NOT NULL,
+  `f2` INT NOT NULL,
   `f3` INT NULL DEFAULT NULL,
   `f4` INT NULL DEFAULT NULL,
   `f5` INT NULL DEFAULT NULL,
@@ -59,11 +59,11 @@ DEFAULT CHARACTER SET = utf8mb3;
 DROP TABLE IF EXISTS `restaurant`.`formulas` ;
 
 CREATE TABLE IF NOT EXISTS `restaurant`.`formulas` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `formula` INT NOT NULL,
   `price` DECIMAL(5,2) NOT NULL,
   `name` VARCHAR(45) NULL,
-  PRIMARY KEY (`ID`),
+  PRIMARY KEY (`id`),
   INDEX `category_formula_key_idx` (`formula` ASC) VISIBLE,
   CONSTRAINT `category_formula_key`
     FOREIGN KEY (`formula`)
@@ -78,11 +78,11 @@ DEFAULT CHARACTER SET = utf8mb3;
 DROP TABLE IF EXISTS `restaurant`.`items` ;
 
 CREATE TABLE IF NOT EXISTS `restaurant`.`items` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `price` DECIMAL(5,2) NOT NULL,
   `description` MEDIUMTEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL,
   `category_id` INT NOT NULL,
-  `id` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `category_id_key`

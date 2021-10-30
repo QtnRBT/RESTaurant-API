@@ -260,39 +260,50 @@ app.delete("/:id", (req, res) => {
                 } else {
                     name = result[0].name;
                 }
-            });
-            try {
-                let sql = `DELETE FROM categories WHERE id=${req.params.id}`
-                con.query(sql, (err, result, fields) => {
-                    if(empty) {
-                        let myError = {
-                            code: 404,
-                            message: "This category doesn't exist."
-                        }
-                        res.statusCode = 404;
-                        res.send(myError);
-                        return;
-                    }
+                try {
+                    let sql = `DELETE FROM categories WHERE id=${req.params.id}`
+                    con.query(sql, (err, result, fields) => {
 
-                    if(result) {
-                        res.statusCode = 200;
-                        let message = {
-                            "code": 200,
-                            "message": `Category ${name} successfully deleted.`
+                        if(err) {
+                            let myError = {
+                                code: 500,
+                                message: err
+                            }
+                            res.statusCode = 500;
+                            res.send(myError);
+                            return;
                         }
-                        res.send(message);
-                        return;
+
+                        if(empty) {
+                            let myError = {
+                                code: 404,
+                                message: "This category doesn't exist."
+                            }
+                            res.statusCode = 404;
+                            res.send(myError);
+                            return;
+                        }
+                        
+                        if(result) {
+                            res.statusCode = 200;
+                            let message = {
+                                "code": 200,
+                                "message": `Category ${name} successfully deleted.`
+                            }
+                            res.send(message);
+                            return;
+                        }
+                    })
+                } catch(error) {
+                    res.statusCode = 500;
+                    let err = {
+                        "code": 500,
+                        "message": error
                     }
-                })
-            } catch(error) {
-                res.statusCode = 500;
-                let err = {
-                    "code": 500,
-                    "message": error
+                    res.send(err);
+                    return;
                 }
-                res.send(err);
-                return;
-            }
+            });
         } else {
             let myError = {
                 code: 401,
