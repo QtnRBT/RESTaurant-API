@@ -67,11 +67,11 @@ If you want to get **all** the existing dishes there are in our database, you ca
 }
 ```
 
-Alternatively, you might want to request only one dish. To do so, you can either get one by it's id, or other parameters.
+Alternatively, you might want to request only one dish. To do so, you can either get one by its id, or other parameters.
 
 Let's imagine you only want to get the **Tartiflette**. 
 
-First case scenario when you know it's id, you will have to make a get request on the `http://localhost:3000/items/5` where 5 is the id of the dish you want to get. It will return this data :
+First case scenario when you know its id, you will have to make a get request on the `http://localhost:3000/items/5` where 5 is the id of the dish you want to get. It will return this data :
 
 ```json
 {
@@ -92,7 +92,7 @@ If the item you're trying to request doesn't exist, it will return this data :
 }
 ```
 
-You can also get a dish from different parameters, for instance you can get a dish from it's price. Let's try to get the Brownie for example. So we're gonna make a get request on the `http://localhost:3000/items?price=5.4`.
+You can also get a dish from different parameters, for instance you can get a dish from its price. Let's try to get the Brownie for example. So we're gonna make a get request on the `http://localhost:3000/items?price=5.4`.
 
 ```json
 {
