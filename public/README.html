@@ -26,7 +26,6 @@
         
     </head>
     <body class="vscode-body">
-        <div class="myBody">
         <h1 id="getting-started-with-restaurant-api">Getting started with RESTaurant API</h1>
 <p>This page will help you get started with RESTaurant API. I'm sure you'll rock it !</p>
 <p>With our API, you will be able to create menus for restaurants. We have three categories of things you can create :</p>
@@ -39,8 +38,8 @@
 <ol>
 <li><a href="#1-installation">Installation</a>
 <ol>
-<li><a href="#11-api-installation">API Installation</a></li>
-<li><a href="#12-database-installation">Database Installation</a></li>
+<li><a href="#11-api-installation">API installation</a></li>
+<li><a href="#12-database-installation">Database installation</a></li>
 </ol>
 </li>
 <li><a href="#2-making-requests">Making requests</a>
@@ -54,11 +53,12 @@
 </ol>
 <h2 id="1-installation">1. Installation</h2>
 <p>Before starting any installation, make sure you have <a href="https://nodejs.org/en/">NodeJS</a> installed on your machine.</p>
-<h3 id="11-api-installation">1.1 API Installation</h3>
+<h3 id="11-api-installation">1.1 API installation</h3>
 <p>Create a folder wherever you want on your PC and open a terminal.
-Then change directory in your terminal such as below :</p>
-<pre><code class="language-bash"><div><span class="hljs-built_in">cd</span> WHEREVER/YOU/MADE/A/DIRECTORY</div></code></pre>
-<p>Then we will need to clone this repository to start the API.</p>
+Then, change directory in your terminal such as below :</p>
+<pre><code class="language-bash"><div><span class="hljs-built_in">cd</span> WHEREVER/YOU/MADE/A/DIRECTORY
+</div></code></pre>
+<p>Then, we will need to clone this repository to start the API.</p>
 <pre><code class="language-bash"><div>git <span class="hljs-built_in">clone</span> git@github.com:EpitechDigitalPromo2026/D-API-100-D-API-100_Bordeaux_quentin-robert.git
 </div></code></pre>
 <p>Then, it will download all the code in the folder <code>D-API-100-D-API-100_Bordeaux_quentin-robert</code>.</p>
@@ -77,10 +77,10 @@ Then change directory in your terminal such as below :</p>
 <p><img src="phpMyAdminHome.PNG?raw=True" alt="phpMyAdmin homepage"></p>
 <p>Now, click the <strong>Import</strong> tab in the top navigation bar. This will redirect you to this page, where you can submit your own <strong>.sql</strong> file :</p>
 <p><img src="phpMyAdminUpload.PNG?raw=True" alt="phpMyAdmin upload page"></p>
-<p>Now click <strong>Choose a file</strong> and upload the <code>extras/restaurant.sql</code> file. Then click the <strong>GO</strong> button on the bottom right hand corner of the page.</p>
+<p>Now, click <strong>Choose a file</strong> and upload the <code>extras/restaurant.sql</code> file. Then, click the <strong>GO</strong> button on the bottom right hand corner of the page.</p>
 <p>If everything succeeded, you will land on this page :</p>
 <p><img src="phpMyAdminSuccess.PNG?raw=True" alt="phpMyAdmin upload success"></p>
-<p>Our database will have 4 tables :</p>
+<p>Our database will consist of 4 tables :</p>
 <ol>
 <li>The <strong>items</strong> table with a name, a price, a description, a category ID and an ID (for the item itself)</li>
 <li>The <strong>categories</strong> table with an ID, a name and a description (optional)</li>
@@ -227,7 +227,7 @@ Then change directory in your terminal such as below :</p>
 </table>
 <p>Once we have installed everything we need, we can start the API by typing <code>nodemon .</code> in the terminal.</p>
 <h2 id="2-making-requests">2. Making requests</h2>
-<p>Now that everything is properly set up, we can start making requests to our API.
+<p>Now, that everything is properly set up, we can start making requests to our API.
 We have three main routes which you can use :</p>
 <ul>
 <li><code>/items</code> To interact with all of the dishes</li>
@@ -240,11 +240,11 @@ We have three main routes which you can use :</p>
 <p><img src="postmanHome.PNG?raw=True" alt="Postman homepage"></p>
 <p>When you're ready to get started, click the <strong>Collection</strong> tab and then <strong>Import</strong> to import our collection.</p>
 <p><img src="postmanUpload.PNG?raw=True" alt="Postman Upload"></p>
-<p>Then select the <code>extras/Postman collection.json</code> file and click <strong>Import</strong>. You should see that a <strong>RESTaurant API</strong> list appeared.</p>
+<p>Then, select the <code>extras/Postman collection.json</code> file and click <strong>Import</strong>. You should see that a <strong>RESTaurant API</strong> list appeared.</p>
 <h3 id="21-post-requests">2.1 POST requests</h3>
 <p>Since we currently have nothing stored in our database, we need to start adding some menus.</p>
 <p>In the following request's headers, we need to authenticate, otherwise the API won't let us publish anything. To do this, you can use the <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic access authentication</a> with the <code>root:admin</code> credentials.</p>
-<p>We will add our first ever category, then we will add another one, then we will add a dish and finally add a formula.</p>
+<p>We will add our first ever category, then we will add another one, then we will add a dish and eventually add a formula.</p>
 <h4 id="adding-a-category">Adding a category</h4>
 <p>Let's add our first category which will be <strong>Starters</strong>. To do this, we need to make a POST request on the <code>/categories</code> route. You can use the POST requests included in the Postman collection to start.</p>
 <p>If we don't authenticate, the API will return this error :</p>
@@ -271,9 +271,9 @@ We have three main routes which you can use :</p>
     <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;Category Starters successfully created.&quot;</span>
 }
 </div></code></pre>
-<p>Congratulations, you created your first category ! We need to create at least one more category before adding a formula, try creating a <strong>Pizzas</strong> category.</p>
+<p>Congratulations, you've created your first category ! We need to create at least one more category before adding a formula, try creating a <strong>Pizzas</strong> category.</p>
 <h4 id="adding-a-dish">Adding a dish</h4>
-<p>Let's add our first dish which will be <strong>Salad</strong>, classified in the <strong>Starters</strong> category. To do this, we need to make a POST request on the <code>/items</code> route. You can use the POST requests included in the Postman collection to start.</p>
+<p>Let's add our first dish which will be <strong>Salad</strong>, stored in the <strong>Starters</strong> category. To do this, we need to make a POST request on the <code>/items</code> route. You can use the POST requests included in the Postman collection to start.</p>
 <p>The request's body :</p>
 <pre><code class="language-json"><div>{
     <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Salad&quot;</span>,
@@ -309,9 +309,9 @@ We have three main routes which you can use :</p>
 }
 </div></code></pre>
 <h3 id="22-get-requests">2.2 GET requests</h3>
-<p>Now that we have some data to retrieve from our database, we can start making GET requests. These requests need no particular authentication, so we don't need to add this to our headers. We will need to query the <code>/items</code> route in order to get the items.</p>
+<p>Now, that we have some data to retrieve from our database, we can start making GET requests. These requests need no particular authentication, so we don't need to add this to our headers. We will need to query the <code>/items</code> route in order to get the items.</p>
 <h4 id="getting-a-dish">Getting a dish</h4>
-<p>We have three ways to get an item. We can either :</p>
+<p>We have three ways of getting an item. We can either :</p>
 <ul>
 <li>request all the dishes</li>
 <li>request a particular item, from its ID</li>
@@ -380,7 +380,7 @@ We have three main routes which you can use :</p>
 }
 </div></code></pre>
 <h4 id="getting-a-formula">Getting a formula</h4>
-<p>We have three ways to get a formula. We can either :</p>
+<p>We have three ways of getting a formula. We can either :</p>
 <ul>
 <li>request all formulas</li>
 <li>request a particular formula, from its ID</li>
@@ -436,7 +436,7 @@ We have three main routes which you can use :</p>
     <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;Formula successfully updated.&quot;</span>
 }
 </div></code></pre>
-<p>If we get it we can see that it now returns :</p>
+<p>If we get it, we can see that it now returns :</p>
 <pre><code class="language-json"><div>{
     <span class="hljs-attr">&quot;ID&quot;</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">&quot;price&quot;</span>: <span class="hljs-number">11.5</span>,
@@ -458,6 +458,5 @@ We have three main routes which you can use :</p>
 }
 </div></code></pre>
 
-    </div>
     </body>
     </html>
