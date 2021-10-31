@@ -10,8 +10,8 @@ With our API, you will be able to create menus for restaurants. We have three ca
 ## Navigation
 
 1. [Installation](#1-installation)
-    1. [API Installation](#11-api-installation)
-    2. [Database Installation](#12-database-installation)
+    1. [API installation](#11-api-installation)
+    2. [Database installation](#12-database-installation)
 2. [Making requests](#2-making-requests)
     1. [POST requests](#21-post-requests)
     2. [GET requests](#22-get-requests)
@@ -22,16 +22,16 @@ With our API, you will be able to create menus for restaurants. We have three ca
 
 Before starting any installation, make sure you have [NodeJS](https://nodejs.org/en/) installed on your machine.
 
-### 1.1 API Installation
+### 1.1 API installation
 
 Create a folder wherever you want on your PC and open a terminal.
-Then change directory in your terminal such as below :
+Then, change directory in your terminal such as below :
 
 ```bash
 cd WHEREVER/YOU/MADE/A/DIRECTORY
 ```
 
-Then we will need to clone this repository to start the API.
+Then, we will need to clone this repository to start the API.
 
 ```bash
 git clone git@github.com:EpitechDigitalPromo2026/D-API-100-D-API-100_Bordeaux_quentin-robert.git
@@ -69,13 +69,13 @@ Now, click the **Import** tab in the top navigation bar. This will redirect you 
 
 ![phpMyAdmin upload page](public/phpMyAdminUpload.PNG?raw=True)
 
-Now click **Choose a file** and upload the `extras/restaurant.sql` file. Then click the **GO** button on the bottom right hand corner of the page.
+Now, click **Choose a file** and upload the `extras/restaurant.sql` file. Then, click the **GO** button on the bottom right hand corner of the page.
 
 If everything succeeded, you will land on this page :
 
 ![phpMyAdmin upload success](public/phpMyAdminSuccess.PNG?raw=True)
 
-Our database will have 4 tables :
+Our database will consist of 4 tables :
 1. The **items** table with a name, a price, a description, a category ID and an ID (for the item itself)
 2. The **categories** table with an ID, a name and a description (optional)
 3. The **formulas** table with an ID, a formula ID, a price and a name (optional)
@@ -128,7 +128,7 @@ Once we have installed everything we need, we can start the API by typing ```nod
 
 ## 2. Making requests
 
-Now that everything is properly set up, we can start making requests to our API.
+Now, that everything is properly set up, we can start making requests to our API.
 We have three main routes which you can use :
 - `/items` To interact with all of the dishes
 - `/categories` To interact with the cateogries
@@ -146,7 +146,7 @@ When you're ready to get started, click the **Collection** tab and then **Import
 
 ![Postman Upload](public/postmanUpload.PNG?raw=True)
 
-Then select the `extras/Postman collection.json` file and click **Import**. You should see that a **RESTaurant API** list appeared.
+Then, select the `extras/Postman collection.json` file and click **Import**. You should see that a **RESTaurant API** list appeared.
 
 
 
@@ -156,7 +156,7 @@ Since we currently have nothing stored in our database, we need to start adding 
 
 In the following request's headers, we need to authenticate, otherwise the API won't let us publish anything. To do this, you can use the [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) with the `root:admin` credentials.
 
-We will add our first ever category, then we will add another one, then we will add a dish and finally add a formula.
+We will add our first ever category, then we will add another one, then we will add a dish and eventually add a formula.
 
 #### Adding a category
 
@@ -198,11 +198,11 @@ Which will result in this response :
 }
 ```
 
-Congratulations, you created your first category ! We need to create at least one more category before adding a formula, try creating a **Pizzas** category.
+Congratulations, you've created your first category ! We need to create at least one more category before adding a formula, try creating a **Pizzas** category.
 
 #### Adding a dish
 
-Let's add our first dish which will be **Salad**, classified in the **Starters** category. To do this, we need to make a POST request on the `/items` route. You can use the POST requests included in the Postman collection to start.
+Let's add our first dish which will be **Salad**, stored in the **Starters** category. To do this, we need to make a POST request on the `/items` route. You can use the POST requests included in the Postman collection to start.
 
 The request's body :
 
@@ -254,11 +254,11 @@ The response :
 
 ### 2.2 GET requests
 
-Now that we have some data to retrieve from our database, we can start making GET requests. These requests need no particular authentication, so we don't need to add this to our headers. We will need to query the `/items` route in order to get the items.
+Now, that we have some data to retrieve from our database, we can start making GET requests. These requests need no particular authentication, so we don't need to add this to our headers. We will need to query the `/items` route in order to get the items.
 
 #### Getting a dish
 
-We have three ways to get an item. We can either :
+We have three ways of getting an item. We can either :
 
 - request all the dishes
 - request a particular item, from its ID
@@ -346,7 +346,7 @@ For instance, you can replace **id** with 5 and it will return the following :
 
 #### Getting a formula
 
-We have three ways to get a formula. We can either :
+We have three ways of getting a formula. We can either :
 
 - request all formulas
 - request a particular formula, from its ID
@@ -423,7 +423,7 @@ And this is the response :
 }
 ``` 
 
-If we get it we can see that it now returns : 
+If we get it, we can see that it now returns : 
 
 ```json
 {

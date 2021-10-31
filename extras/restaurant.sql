@@ -30,10 +30,7 @@ CREATE TABLE IF NOT EXISTS `restaurant`.`categories` (
   `name` VARCHAR(45) NOT NULL,
   `description` MEDIUMTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `category_idx` (`name` ASC) VISIBLE)
-ENGINE = InnoDB
-AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8mb3;
+  INDEX `category_idx` (`name` ASC) VISIBLE);
 
 
 -- -----------------------------------------------------
@@ -48,9 +45,7 @@ CREATE TABLE IF NOT EXISTS `restaurant`.`category_formulas` (
   `f3` INT NULL DEFAULT NULL,
   `f4` INT NULL DEFAULT NULL,
   `f5` INT NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+  PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------
@@ -67,9 +62,7 @@ CREATE TABLE IF NOT EXISTS `restaurant`.`formulas` (
   INDEX `category_formula_key_idx` (`formula` ASC) VISIBLE,
   CONSTRAINT `category_formula_key`
     FOREIGN KEY (`formula`)
-    REFERENCES `restaurant`.`category_formulas` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+    REFERENCES `restaurant`.`category_formulas` (`id`));
 
 
 -- -----------------------------------------------------
@@ -87,10 +80,7 @@ CREATE TABLE IF NOT EXISTS `restaurant`.`items` (
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `category_id_key`
     FOREIGN KEY (`category_id`)
-    REFERENCES `restaurant`.`categories` (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8mb3;
+    REFERENCES `restaurant`.`categories` (`id`));
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
