@@ -63,17 +63,17 @@ Once you have installed XAMPP and that everything is running, you have to open p
 
 You will be redirected to this page :
 
-![phpMyAdmin homepage](images/phpMyAdminHome.PNG?raw=True)
+![phpMyAdmin homepage](public/phpMyAdminHome.PNG?raw=True)
 
 Now, click the **Import** tab in the top navigation bar. This will redirect you to this page, where you can submit your own **.sql** file :
 
-![phpMyAdmin upload page](images/phpMyAdminUpload.PNG?raw=True)
+![phpMyAdmin upload page](public/phpMyAdminUpload.PNG?raw=True)
 
 Now click **Choose a file** and upload the `extras/restaurant.sql` file. Then click the **GO** button on the bottom right hand corner of the page.
 
 If everything succeeded, you will land on this page :
 
-![phpMyAdmin upload success](images/phpMyAdminSuccess.PNG?raw=True)
+![phpMyAdmin upload success](public/phpMyAdminSuccess.PNG?raw=True)
 
 Our database will have 4 tables :
 1. The **items** table with a name, a price, a description, a category ID and an ID (for the item itself)
@@ -140,11 +140,11 @@ We have created a Postman collection for you to use with our API. It's stored un
 
 Once you start Postman, you will land on this page :
 
-![Postman homepage](images/postmanHome.PNG?raw=True)
+![Postman homepage](public/postmanHome.PNG?raw=True)
 
 When you're ready to get started, click the **Collection** tab and then **Import** to import our collection.
 
-![Postman Upload](images/postmanUpload.PNG?raw=True)
+![Postman Upload](public/postmanUpload.PNG?raw=True)
 
 Then select the `extras/Postman collection.json` file and click **Import**. You should see that a **RESTaurant API** list appeared.
 
