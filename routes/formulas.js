@@ -120,7 +120,7 @@ app.get("/:id", (req, res) => {
 // to finish
 app.get("/", async (req, res) => {
     console.log(req.body.length);
-    if(req.query.length == 0) {
+    if(req.query.length == 0 || req.query.length == undefined) {
         let SQL = "SELECT * FROM formulas";
         con.query(SQL, async (err, result, fields) => {
             console.log("Oui bonsoir")

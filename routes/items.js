@@ -13,7 +13,8 @@ let con = mysql.createConnection({
 });
 
 app.get("/", (req, res) => {
-    if(req.query.length == 0) {
+    console.log(req.query.length);
+    if(req.query.length == 0 || req.query.length == undefined) {
         try {
             let sql = "SELECT * FROM items";
             con.query(sql, (err, result, fields) => {

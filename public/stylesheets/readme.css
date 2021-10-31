@@ -1,0 +1,45 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 75vw;
+    margin: 0 auto;
+    color: rgb(173, 186, 199);
+    background: rgb(34, 39, 46);
+}
+
+.myBody {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid rgb(68, 76, 86);
+    border-radius: 6px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a {
+    color: rgb(83, 155, 245);
+}
+
+code {
+    background: #3c434e;
+    color: #CDD9E5;
+    padding: .2em .4em;
+    border-radius: 6px;
+}
+
+pre {
+    background: #3c434e;
+    padding: .2em .4em;
+    border-radius: 6px;
+}
+
+pre code {
+    background: #3c434e;
+    color: #CDD9E5;
+    padding: 0;
+    border-radius: 0;
+}
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
